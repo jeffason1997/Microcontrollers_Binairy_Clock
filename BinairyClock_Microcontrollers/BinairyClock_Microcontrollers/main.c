@@ -6,13 +6,22 @@
  */ 
 
 #include <avr/io.h>
+#include <time.h>
+
+#define F_CPU 8000000
 
 
 int main(void)
 {
-    /* Replace with your application code */
+
+	time_t rawtime;
+	struct tm * timeinfo;
+
     while (1) 
     {
+		time(&rawtime);
+		timeinfo = localtime(&rawtime);
+		
     }
 }
 
