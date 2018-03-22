@@ -27,3 +27,9 @@
 	 TWCR = (0x80 | 0x04);
 	 while( 0 == (TWCR & 0x80) );
  }
+
+ void twi_rx(unsigned char data){
+	data = BIN2BCD(TWDR);
+	TWCR = (0x80 | 0x04);
+	while( 0 == (TWCR & 0x80) );
+ }

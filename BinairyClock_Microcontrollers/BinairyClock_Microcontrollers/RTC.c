@@ -21,9 +21,9 @@
  void updateTime(struct tm *timeinf2){
 	 twi_start();
 	 twi_tx(0b11010001);					// Display I2C addres + R/W bit
-	 twi_tx(0b00000010);					// word address RTC
-	 twi_tx(BIN2BCD(timeinf2->tm_sec));	// read seconds RTC
-	 twi_tx(BIN2BCD(timeinf2->tm_min));
-	 twi_tx(BIN2BCD(timeinf2->tm_hour));
+	 //twi_tx(0b00000010);					// word address RTC
+	 twi_rx(timeinf2->tm_sec);				// read seconds RTC
+	 twi_rx(timeinf2->tm_min);
+	 twi_rx(timeinf2->tm_hour);
 	 twi_stop();
  }
